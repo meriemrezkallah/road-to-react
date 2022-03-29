@@ -1,27 +1,8 @@
-//import logo from './logo.svg';
+//import logo from './logo.svg'
+import React from 'react';
+import TodoList from './TodoList';
 import './App.css';
-function getTitle(title){
-  return title;
-}
 
-const todoList = [
-  {
-    id: 1,
-    title: 'Complete assignment',
-  },
-  {
-    id: 2,
-    title: 'Do dishes',
-  },
-  {
-    id: 3,
-    title: 'Cook for the week',
-  },
-  {
-    id: 4,
-    title: 'Clean the house',
-  },
-];
 function App() {
   return (
    
@@ -29,11 +10,7 @@ function App() {
         <h1> ToDo List </h1>
         <hr />
         {/*  render the list */}
-        <ul>
-          {todoList.map((item)=>{
-            return <li key={item.id}> {item.title}</li>
-          })}
-        </ul>
+       <TodoList />
     </div>
   );
 }
