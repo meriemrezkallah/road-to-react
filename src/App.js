@@ -32,13 +32,25 @@ const todoList = [
 ];
 function App() {
   return (
+<<<<<<< HEAD
 
 
+=======
+   
+>>>>>>> origin
     <div>
         <h1> ToDo List </h1>
         <hr />
         {/*  render the list */}
+<<<<<<< HEAD
         <List />
+=======
+        <ul>
+          {todoList.map((item)=>{
+            return <li key={item.id}> {item.title}</li>
+          })}
+        </ul>
+>>>>>>> origin
     </div>
   );
 }
