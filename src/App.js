@@ -1,6 +1,7 @@
 //import logo from './logo.svg'
 import React from 'react';
 import TodoList from './TodoList';
+import AddTodoForm from './AddTodoForm';
 import './App.css';
 
 function App() {
@@ -11,6 +12,9 @@ function App() {
         <hr />
         {/*  render the list */}
        <TodoList />
+       <hr />
+       <AddTodoForm />
+       <hr />
     </div>
   );
 }
