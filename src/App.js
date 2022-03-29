@@ -3,7 +3,15 @@ import './App.css';
 function getTitle(title){
   return title;
 }
-
+function List(){
+  return (
+<ul>
+          {todoList.map((item)=>{
+            return <li key={item.id}> {item.title}</li>
+          })}
+        </ul>
+  );
+}
 const todoList = [
   {
     id: 1,
@@ -24,31 +32,13 @@ const todoList = [
 ];
 function App() {
   return (
-    /*<div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>*/
+
+
     <div>
         <h1> ToDo List </h1>
         <hr />
         {/*  render the list */}
-        <ul>
-          {todoList.map(function(item){
-            return <li key={item.id}> {item.title}</li>
-          })}
-        </ul>
+        <List />
     </div>
   );
 }
