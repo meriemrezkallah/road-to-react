@@ -1,10 +1,11 @@
 //import logo from './logo.svg'
-import React from 'react';
+import React, { useState } from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 import './App.css';
 
 function App() {
+const [newTodo, setNewTodo] = React.useState('..........');
   return (
    
     <div>
@@ -13,8 +14,9 @@ function App() {
         {/*  render the list */}
        <TodoList />
        <hr />
-       <AddTodoForm />
+       <AddTodoForm onAddTodo={setNewTodo}/>
        <hr />
+       <p> {newTodo}</p>
     </div>
   );
 }
