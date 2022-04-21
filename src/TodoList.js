@@ -24,12 +24,12 @@ const todoList = [
 
 
   /*the function/component*/
-function TodoList() {
+function TodoList(props) {
     return(
     <div>
         {/*  render the list */}
         <ul>
-          {todoList.map((item)=>{
+          {props.todoList.map((item)=>{
             console.log(item.title)
             console.log(item.id)
             return <TodoListItem key={item.id} todo={item.title}/>//<li key={item.id}> {item.title}</li>
