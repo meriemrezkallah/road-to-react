@@ -6,13 +6,14 @@ import './App.css';
 
 function App() {
 const [newTodo, setNewTodo] = React.useState('..........');
+const [todoList, setTodoList] = React.useState("first test");
   return (
    
     <div>
         <h1> ToDo List </h1>
         <hr />
         {/*  render the list */}
-       <TodoList />
+       <TodoList todoList={setTodoList}/>
        <hr />
        <AddTodoForm onAddTodo={setNewTodo}/>
        <hr />
