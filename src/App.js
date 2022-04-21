@@ -6,7 +6,10 @@ import './App.css';
 
 function App() {
 const [todoList, setTodoList] = React.useState([]);
-const [newTodo, setNewTodo] = React.useState('..........');
+//const [newTodo, setNewTodo] = React.useState('..........');
+const addTodo = (newTodo) => {
+  setTodoList([...todoList,...newTodo]);
+}
   return (
    
     <div>
@@ -15,9 +18,9 @@ const [newTodo, setNewTodo] = React.useState('..........');
         {/*  render the list */}
        <TodoList todoList={todoList}/>
        <hr />
-       <AddTodoForm onAddTodo={setNewTodo}/>
+       <AddTodoForm onAddTodo={addTodo}/>
        <hr />
-       <p> {newTodo}</p>
+       {/*<p> {newTodo}</p>*/}
     </div>
   );
 }

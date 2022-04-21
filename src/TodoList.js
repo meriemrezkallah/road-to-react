@@ -3,7 +3,7 @@ import TodoListItem from "./TodoListItem";
 
 /* the randered list */
 const todoList = [
-    {
+   /* {
       id: 1,
       title: 'Complete assignment',
     },
@@ -19,6 +19,10 @@ const todoList = [
       id: 4,
       title: 'Clean the house',
     },
+    {
+      id: nanoid(),
+      title: props,
+    },*/
   ];
 
 
