@@ -5,27 +5,22 @@ import AddTodoForm from './AddTodoForm';
 import './App.css';
 
 function App() {
-<<<<<<< HEAD
-const [newTodo, setNewTodo] = React.useState('..........');
-const [todoList, setTodoList] = React.useState("first test");
-=======
+
 const [todoList, setTodoList] = React.useState([]);
 //const [newTodo, setNewTodo] = React.useState('..........');
 const addTodo = (newTodo) => {
   setTodoList([...todoList,newTodo]);
 }
->>>>>>> assignment
+
   return (
    
     <div>
         <h1> ToDo List </h1>
         <hr />
         {/*  render the list */}
-<<<<<<< HEAD
-       <TodoList todoList={setTodoList}/>
-=======
+
        <TodoList todoList={todoList}/>
->>>>>>> assignment
+
        <hr />
        <AddTodoForm onAddTodo={addTodo}/>
        <hr />

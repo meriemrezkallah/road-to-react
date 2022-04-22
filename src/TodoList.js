@@ -1,27 +1,9 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
 
-/* the randered list 
+/* the randered list */
 const todoList = [
-<<<<<<< HEAD
-  {
-    id: 1,
-    title: 'Complete assignment',
-  },
-  {
-    id: 2,
-    title: 'Do dishes',
-  },
-  {
-    id: 3,
-    title: 'Cook for the week',
-  },
-  {
-    id: 4,
-    title: 'Clean the house',
-  },
-];
-=======
+
    /* {
       id: 1,
       title: 'Complete assignment',
@@ -44,10 +26,10 @@ const todoList = [
     },*/
   ];
 
->>>>>>> assignment
 
-*/
-const todoList = [];
+
+
+//const todoList = [];
 
   /*the function/component*/
 function TodoList(props) {
