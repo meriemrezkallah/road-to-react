@@ -3,6 +3,7 @@ import TodoListItem from "./TodoListItem";
 
 /* the randered list 
 const todoList = [
+<<<<<<< HEAD
   {
     id: 1,
     title: 'Complete assignment',
@@ -20,6 +21,30 @@ const todoList = [
     title: 'Clean the house',
   },
 ];
+=======
+   /* {
+      id: 1,
+      title: 'Complete assignment',
+    },
+    {
+      id: 2,
+      title: 'Do dishes',
+    },
+    {
+      id: 3,
+      title: 'Cook for the week',
+    },
+    {
+      id: 4,
+      title: 'Clean the house',
+    },
+    {
+      id: nanoid(),
+      title: props,
+    },*/
+  ];
+
+>>>>>>> assignment
 
 */
 const todoList = [];
@@ -30,7 +55,7 @@ function TodoList(props) {
     <div>
         {/*  render the list */}
         <ul>
-          {todoList.map((item)=>{
+          {props.todoList.map((item)=>{
             console.log(item.title)
             console.log(item.id)
             return <TodoListItem key={item.id} todo={item.title}/>//<li key={item.id}> {item.title}</li>
