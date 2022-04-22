@@ -11,19 +11,20 @@ let AddTodoForm = (props) => {
        event.preventDefault();
         //const todoTitle = event.target.title.value;
         //console.log(todoTitle)
-        props.onAddTodo([{
+        props.onAddTodo({
             title:todoTitle,
             id: Date.now(),
-        },]);
+        });
         //document.getElementById("my-form").reset();
         //event.target.reset();   
         //for empty string
-        todoTitle = ' ';    
+        setTodoTitle("");
+        //todoTitle = ' ';    
     }
 return (
 <form id="my-form" onSubmit={handleAddTodo}>
     <label htmlFor="todoTitle" > Title : </label>
-    <input id="todoTitle" value={props.todoTitle} name="title" type="text" onChange={handleTitleChange}/>
+    <input id="todoTitle" value={todoTitle} name="title" type="text" label="Add new task" onChange={handleTitleChange}/>
     <button type="submit">  Add </button>
 </form>
 );
