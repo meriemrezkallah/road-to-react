@@ -5,15 +5,19 @@ import './App.css';
 
 
 const useSemiPersistentState = () => {
-  const [todoList, setTodoList] = React.useState(() => {
+   /*const [todoList, setTodoList] = React.useState(() => {
     const saved=localStorage.getItem('savedTodoList');
     const initialValue = JSON.parse(saved);
-    return initialValue || ' ';
+    return initialValue || [];*/
+    const [todoList, setTodoList] = React.useState(() => {
+      return JSON.parse(localStorage.getItem('savedTodoList')) || [];
   });
-  /*const [todoList, setTodoList] = React.useState([]);   React.useEffect(() => { 
+   
+/* React.useEffect(() => { 
     const savedTodoList = JSON.parse(localStorage.getItem('savedTodoList'));
     if (savedTodoList){  setTodoList(savedTodoList);
-    } }, []);*/
+    } }, []);
+    const [todoList, setTodoList] = React.useState([]);  */
   
   //new react hook is Effect !! to save the state
   React.useEffect(() => {
