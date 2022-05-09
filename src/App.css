@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+h1 {
+  color: rgb(88, 165, 165);
+  text-align: center;
+}
+body {
+  margin: 2%;
+  background-color: azure;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

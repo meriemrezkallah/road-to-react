@@ -13,8 +13,8 @@ let AddTodoForm = (props) => {
         //const todoTitle = event.target.title.value;
         //console.log(todoTitle)
         props.onAddTodo({
-            title:todoTitle,
             id: Date.now(),
+            title:todoTitle,
         });
         //document.getElementById("my-form").reset();
         //event.target.reset();   
