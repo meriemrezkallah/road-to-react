@@ -41,6 +41,16 @@ const addTodo = (newTodo) => {
   setTodoList([...todoList,newTodo]);
 }
 
+
+        // remove function
+        const removeTodo = (id) => {
+          const removedTodo = todoList.filter(
+          todo => id !== todo.id
+        );
+
+          setTodoList(removedTodo);
+
+        };
   return (
    
     <div>
@@ -48,7 +58,7 @@ const addTodo = (newTodo) => {
         <hr />
         {/*  render the list */}
 
-       <TodoList todoList={todoList}/>
+       <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
 
        <hr />
        <AddTodoForm onAddTodo={addTodo}/>

@@ -40,7 +40,7 @@ function TodoList(props) {
           {props.todoList.map((item)=>{
             console.log(item.title)
             console.log(item.id)
-            return <TodoListItem key={item.id} todo={item.title}/>//<li key={item.id}> {item.title}</li>
+            return <TodoListItem key={item.id} todo={item.title} id={item.id} onRemoveTodo={props.onRemoveTodo}/>//<li key={item.id}> {item.title}</li>
             //<TodoListItem key={item.id} props={todoList}/>
           })}
         </ul>
