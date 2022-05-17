@@ -30,7 +30,12 @@ const useSemiPersistentState = () => {
 
 
 function App() {
+
+
+//const [todoList, setTodoList] = React.useState([]);
+
   const [todoList, setTodoList] = useSemiPersistentState();
+
 //const [newTodo, setNewTodo] = React.useState('..........');
 const addTodo = (newTodo) => {
   setTodoList([...todoList,newTodo]);
@@ -46,14 +51,15 @@ const addTodo = (newTodo) => {
           setTodoList(removedTodo);
 
         };
-
   return (
    
     <div>
         <h1> ToDo List </h1>
         <hr />
         {/*  render the list */}
+
        <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
+
        <hr />
        <AddTodoForm onAddTodo={addTodo}/>
        <hr />

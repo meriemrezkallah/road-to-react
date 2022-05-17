@@ -3,6 +3,7 @@ import TodoListItem from "./TodoListItem";
 
 /* the randered list */
 const todoList = [
+
    /* {
       id: 1,
       title: 'Complete assignment',
@@ -26,6 +27,9 @@ const todoList = [
   ];
 
 
+
+
+//const todoList = [];
 
   /*the function/component*/
 function TodoList(props) {
