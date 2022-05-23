@@ -4,43 +4,45 @@ import AddTodoForm from './AddTodoForm';
 import './App.css';
 
 
-const useSemiPersistentState = () => {
-   /*const [todoList, setTodoList] = React.useState(() => {
-    const saved=localStorage.getItem('savedTodoList');
-    const initialValue = JSON.parse(saved);
-    return initialValue || [];*/
-    const [todoList, setTodoList] = React.useState(() => {
-      return JSON.parse(localStorage.getItem('savedTodoList')) || [];
-  });
-   
-/* React.useEffect(() => { 
-    const savedTodoList = JSON.parse(localStorage.getItem('savedTodoList'));
-    if (savedTodoList){  setTodoList(savedTodoList);
-    } }, []);
-    const [todoList, setTodoList] = React.useState([]);  */
-  
-  //new react hook is Effect !! to save the state
-  React.useEffect(() => {
-    localStorage.setItem('savedTodoList' , JSON.stringify(todoList));},
-    [todoList]);
-
-    return [todoList,setTodoList];
-
-  }
 
 
 function App() {
 
+ 
+//const [todoList, setTodoList] = React.useState([]); const [todoList, setTodoList] = useSemiPersistentState();const [newTodo, setNewTodo] = React.useState('..........');
 
-//const [todoList, setTodoList] = React.useState([]);
+const [todoList, setTodoList] = React.useState([]);
+const [isLoading, setIsLoading] = React.useState(true);
 
-  const [todoList, setTodoList] = useSemiPersistentState();
-
-//const [newTodo, setNewTodo] = React.useState('..........');
 const addTodo = (newTodo) => {
   setTodoList([...todoList,newTodo]);
 }
 
+
+
+ //new useeffect react hook
+ React.useEffect(() => {new Promise((resolve , reject) => {
+  console.log('here');
+  setTimeout(
+    () => resolve({ data : {todoList : JSON.parse(localStorage.getItem('savedTodoList'))}}),
+    2000
+  )
+}
+).then(result => {localStorage.setItem('savedTodoList' , JSON.stringify(todoList))
+  setIsLoading(false);
+console.log('useeffect inside promise')})},
+ []);
+
+ //new react hook is Effect !! to save the state
+ React.useEffect(() => {
+   console.log('useeffect2 out of promise')
+  if (isLoading === false){ 
+  localStorage.setItem('savedTodoList' , JSON.stringify(todoList));
+}
+},
+  [todoList]);
+
+ 
 
         // remove function
         const removeTodo = (id) => {
@@ -58,8 +60,11 @@ const addTodo = (newTodo) => {
         <hr />
         {/*  render the list */}
 
-       <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
-
+        { isLoading ? (<p>  Loading ....</p>):(
+           <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
+           )}
+        
+      
        <hr />
        <AddTodoForm onAddTodo={addTodo}/>
        <hr />
