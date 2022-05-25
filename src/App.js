@@ -21,16 +21,20 @@ const addTodo = (newTodo) => {
 
 
  //new useeffect react hook
- React.useEffect(() => {new Promise((resolve , reject) => {
-  console.log('here');
-  setTimeout(
-    () => resolve({ data : {todoList : JSON.parse(localStorage.getItem('savedTodoList'))}}),
-    2000
-  )
-}
-).then(result => {localStorage.setItem('savedTodoList' , JSON.stringify(todoList))
-  setIsLoading(false);
-console.log('useeffect inside promise')})},
+ React.useEffect(() => {
+  setIsLoading(true);
+    new Promise((resolve, reject) => {
+      setTimeout(() => {setIsLoading(false)}, 2000);
+      resolve();
+  }).then(() => {
+  
+    setTodoList(JSON.parse(localStorage.getItem('savedTodoList')))
+})
+.catch(() => {
+    console.error('Do that');
+})
+
+},
  []);
 
  //new react hook is Effect !! to save the state
