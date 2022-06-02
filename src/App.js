@@ -22,29 +22,55 @@ const addTodo = (newTodo) => {
 
  //new useeffect react hook
  React.useEffect(() => {
-  setIsLoading(true);
+ setIsLoading(true);
     new Promise((resolve, reject) => {
       setTimeout(() => {setIsLoading(false)}, 2000);
       resolve();
   }).then(() => {
   
-    setTodoList(JSON.parse(localStorage.getItem('savedTodoList')))
+    //setTodoList(JSON.parse(localStorage.getItem('savedTodoList')))
+    fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`,
+{ method: 'get',
+  headers: { 'Authorization' :` Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`},
+  mode: 'cors',
+  cache: 'default',
+ })
+.then(response => { 
+  if (response.ok){
+  return response.json()}
+  throw response;
 })
-.catch(() => {
-    console.error('Do that');
+.then(result =>
+  {
+   // let response= await response.json();
+    console.log("O=iam herrrre")
+    //the old way 
+   // setStories(result.data.stories);
+    // the new way
+
+  console.log(result)
+    setTodoList(result.records);
+   
+  
+
+    // setIsLoading(false);
+  })
+.catch((error) => {
+    console.error('Error here');
+}).finally(() => {setIsLoading(false);})
 })
+
 
 },
  []);
 
- //new react hook is Effect !! to save the state
- React.useEffect(() => {
-   console.log('useeffect2 out of promise')
-  if (isLoading === false){ 
-  localStorage.setItem('savedTodoList' , JSON.stringify(todoList));
-}
-},
-  [todoList]);
+//  //new react hook is Effect !! to save the state
+//  React.useEffect(() => {
+//   if (isLoading === false){ 
+//   localStorage.setItem('savedTodoList' , JSON.stringify(todoList));
+// }
+// },
+//   [todoList]);
 
  
 
