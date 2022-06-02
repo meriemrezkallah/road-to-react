@@ -43,12 +43,12 @@ const addTodo = (newTodo) => {
 .then(result =>
   {
    // let response= await response.json();
-    console.log("O=iam herrrre")
+    //console.log("O=iam herrrre")
     //the old way 
    // setStories(result.data.stories);
     // the new way
 
-  console.log(result)
+ // console.log(result)
     setTodoList(result.records);
    
   
