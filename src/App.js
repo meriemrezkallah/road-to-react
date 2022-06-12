@@ -85,6 +85,7 @@ const addTodo = (newTodo) => {
 
         };
   return (
+    //adding routes
     <BrowserRouter>
     <Routes>
       <Route path="/" exact component={App}> </Route>
@@ -109,7 +110,7 @@ const addTodo = (newTodo) => {
     </BrowserRouter>
   );
 }
-
+//heading function
 let New=()=>{
   return <h1> New Todo List ....</h1>
 }
