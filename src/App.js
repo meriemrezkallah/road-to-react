@@ -36,9 +36,9 @@ const addTodo = (newTodo) => {
   cache: 'default',
  })
 .then(response => { 
-  if (response.ok){
-  return response.json()}
-  throw response;
+  //if (response.ok){
+  return response.json()
+//}throw response;
 })
 .then(result =>
   {
