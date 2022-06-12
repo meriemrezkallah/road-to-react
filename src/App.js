@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 import './App.css';
+import {BrowserRouter,Route,Routes} from 'react-router-dom';
 
 
 
@@ -84,8 +85,12 @@ const addTodo = (newTodo) => {
 
         };
   return (
-   
-    <div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" exact component={App}> </Route>
+      <Route path="/new" exact element={<New />}>  </Route>
+    </Routes>
+   <div>
         <h1> ToDo List </h1>
         <hr />
         {/*  render the list */}
@@ -100,7 +105,12 @@ const addTodo = (newTodo) => {
        <hr />
        {/*<p> {newTodo}</p>*/}
     </div>
+   
+    </BrowserRouter>
   );
 }
 
+let New=()=>{
+  return <h1> New Todo List ....</h1>
+}
 export default App;
